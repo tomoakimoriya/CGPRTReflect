@@ -55,6 +55,7 @@ class Triangle implements BaseShape {
  
     calcT(e: THREE.Vector3, v: THREE.Vector3): number {
         //第11回課題       
+        return -1;
     }
  
     calcNorm(p: THREE.Vector3): THREE.Vector3 {
@@ -65,6 +66,7 @@ class Triangle implements BaseShape {
         //第10回課題
         //    +
         //今回の課題
+        return this.color;
     }
     
  }

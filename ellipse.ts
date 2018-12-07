@@ -56,10 +56,12 @@
   
     calcT(e: THREE.Vector3, v: THREE.Vector3): number {
         //第9回課題
+        return -1;
     }
  
     calcShading(q: PointLight, p: THREE.Vector3, e: THREE.Vector3, v: THREE.Vector3,  numdepth: number, scene: RTScene): THREE.Color {
         //第10回課題
+        return this.color;
     }
     
  }
