@@ -59,8 +59,7 @@ export class Ellipse implements BaseShape {
 
     calcNorm(p: THREE.Vector3): THREE.Vector3 {
         const mscale = new THREE.Matrix4().scale(new THREE.Vector3(1 / (this.size.x * this.size.x), 1 / (this.size.y * this.size.y), 1 / (this.size.z * this.size.z)));
-        const postop = p;
-        postop.sub(this.position);
+        const postop = p.sub(this.position);
         return postop.applyMatrix4(mscale).normalize();
     }
 

@@ -57,9 +57,7 @@ export class RaytraceManager {
         }
 
         if (nearest.shape !== undefined) {
-            const hitpos = new THREE.Vector3();
-            hitpos.copy(e);
-            hitpos.add(v.multiplyScalar(nearest.t));
+            const hitpos = e.add(v.multiplyScalar(nearest.t));
             const objcol = nearest.shape.calcShading(this.pointlight, hitpos, e, v, this.shootRay, currentDepth);
             return objcol;
         }
@@ -82,9 +80,7 @@ export class RaytraceManager {
         for (let y = 0; y < img.height; y++) {
             for (let x = 0; x < img.width; x++) {
                 const target = new THREE.Vector3(x - img.width / 2, -y + img.height / 2, 0);
-                const v = new THREE.Vector3();
-                v.copy(target);
-                v.sub(cameraPos).normalize();
+                const v = target.sub(cameraPos).normalize();
 
                 const rayColor = this.shootRay(cameraPos, v, 0);
 
