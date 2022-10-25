@@ -15,7 +15,7 @@ export class RaytraceManager {
     public static readonly MAX_DEPTH = 5;
 
     constructor() {
-        this.loadScene();
+
     }
 
     // シーンの読み込み
@@ -68,6 +68,8 @@ export class RaytraceManager {
 
     // 画面部分の作成(表示する枠ごとに)
     public createRendererDOM = (width: number, height: number, cameraPos: THREE.Vector3) => {
+        this.loadScene();
+
         const canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;
@@ -98,8 +100,11 @@ export class RaytraceManager {
     }
 }
 
+window.addEventListener("DOMContentLoaded", init);
 
-const container = new RaytraceManager();
+function init() {
+    const container = new RaytraceManager();
 
-const viewport = container.createRendererDOM(256, 256, new THREE.Vector3(0, 0, 700));
-document.body.appendChild(viewport);
+    const viewport = container.createRendererDOM(256, 256, new THREE.Vector3(0, 0, 700));
+    document.body.appendChild(viewport);
+}
